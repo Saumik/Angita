@@ -1,0 +1,53 @@
+function myMail() {
+var thread = GmailApp.getInboxThreads(0,1)[0]; // get first thread in inbox
+var message = thread.getMessages()[0]; // get first message
+var check = message.isUnread()
+var read = message.markRead()
+var content = message.getBody(); // log contents of the bodyr
+var trash = message.moveToTrash()
+var refresh = thread.refresh()
+  var medcheck = content.toLowerCase()
+  
+if ( check === false ){
+    
+
+}
+  else 
+    
+  var checkDict = {"keyword":"Information about Keyword", 
+                   "parazone":"Yes JAi sai", 
+                   "hello":"we all love hello", 
+                   "yohoho":"we all love hello",
+                   "cetrazone":"love way you lie", 
+                   "hetromone":"love way you lie",
+                   "=========================== Please follow your response with two empty lines to ensure proper delivery! Unsubsubscribe? Toggle the email setting in the DeskSMS application on your phone - DeskSMS": "no reply"};
+  
+  var count = 0;
+  var messa = '';
+  
+  for (x in checkDict)
+  {
+    if (medcheck.indexOf(x) > -1)
+    {
+      if (checkDict[x] != "no reply")
+      {
+                   count++;                   
+                   messa += checkDict[x] + "\n";
+      }
+    }
+  }
+  
+  
+  if (count < 1)
+  {
+    message.reply("We are extremely sorry that our database doesn't have the response for your query.");
+  }
+  else
+  {
+    message.reply(messa);
+  }
+  
+  read
+  trash
+  refresh
+  }
